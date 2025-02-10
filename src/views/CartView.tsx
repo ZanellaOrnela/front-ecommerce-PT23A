@@ -13,8 +13,11 @@ const CartView = () => {
   const router = useRouter();
 
   useEffect(() => {
-    !userData && router.push("/login")
-  }, [userData])
+    if (!userData) {
+        router.push("/login");
+    }
+}, [userData, router]); // Se agrega `router` a las dependencias
+
 
   useEffect(() => {
     if (!userData) {
